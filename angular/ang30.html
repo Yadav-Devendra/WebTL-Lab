@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script type="text/javascript" src="appang30.js"></script>
+</head>
+
+<body ng-app="formApp">
+    <div ng-controller="FormController">
+
+        <form name="myform" novalidate>
+            Name : <input type="text" ng-model="employee.name" ng-model-options="{updateOn:'blur'}" /></br>
+            </br>
+
+            Gender : <input type="text" ng-model="employee.gender" ng-model-options="{debounce:2000}" /></br>
+
+            E-mail : <input type="email" ng-model="employee.email"
+                ng-model-options="{updateOn:'blur',debounce:{blur:1000} }" /></br>
+
+        </form>
+
+        <p>Name : {{employee.name}}</p>
+        <p>Gender : {{employee.gender}}</p>
+        <p>Email : {{employee.email}}</p>
+    </div>
+
+    </div>
+
+
+</body>
+
+</html>

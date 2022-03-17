@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="MyApp" ng-controller="formCtrl">
+        <form>
+            First Name: <input type="text" ng-model="firstname"><br />
+            Last Name: <input type="text" ng-model="lastname"><br />
+            <input type="button" value="Get Values" ng-click="getValues()" />
+            <p> Full Name: {{name}}</p>
+            Show password:<input type="checkbox" ng-model="myVar">
+            <h1 ng-show="myVar">SIKE THAT'S THe wrong number OOOOOOO</h1>
+            <h3>Bind Checkboxes with Array List</h3>
+            <div ng-repeat="user in arrlist">
+                <input type="checkbox" />
+                <label>{{user.name}}</label>
+            </div>
+            Pick a topic:
+            <input type="radio" ng-model="myVar1" value="tuts">Tutorials
+            <input type="radio" ng-model="myVar1" value="fest">Festivals
+            <input type="radio" ng-model="myVar1" value="news">News<br />
+            Selected topic is :{{myVar1}}<br />
+            Select a topic:
+            <select ng-model="myVar2">
+                <option value="">
+                <option value="tuts">Tutorials</option>
+                <option value="fest">Festivals</option>
+                <option value="news">News</option>
+            </select><br />
+            Selected topic2 is :{{myVar2}}<br />
+            <select name="users" ng-model="mydrop1">
+                <option value="">--Select User--</option>
+                <option ng-repeat="option in arrlist" value="{{option.name}}">{{option.name}}</option>
+            </select>
+            {{mydrop1}}<br><br>
+            <select name="users" ng-options="user.userid for user in arrlist" ng-model="userselected">
+                <option value="">--Select User--</option>
+            </select><br /><br />
+            <span>User Name: {{userselected.name}}, UserId: {{userselected.userid}}</span> <br />
+
+            <div ng-switch="myVar1">
+                <div ng-switch-when="tuts">
+                    <h1>Tutorials</h1>
+                    <p>Welcome to the best tutorials over the net.</p>
+                </div>
+                <div ng-switch-when="fest">
+                    <h1>Festivals</h1>
+                    <p>Most famous festivals.</p>
+                </div>
+                <div ng-switch-when="news">
+                    <h1>News</h1>
+                    <p>Welcome to the news portal.</p>
+                </div>
+            </div>
+
+            <dir ng-switch="myVar2">
+                <div ng-switch-when="tuts">
+                    <h1>Tutorials</h1>
+                    <p>Welcome to the best tutorials over the net.</p>
+                </div>
+                <div ng-switch-when="fest">
+                    <h1>Festivals</h1>
+                    <p>Most famous festivals.</p>
+                </div>
+                <div ng-switch-when="news">
+                    <h1>News</h1>
+                    <p>Welcome to the news portal.</p>
+                </div>
+            </dir>
+        </form>
+    </div>
+    <script>
+        var app = angular.module('MyApp', []);
+        app.controller('formCtrl', function ($scope) {
+            $scope.firstname = "Ajeet";
+            $scope.lastname = "Pal";
+            $scope.getValues = function () {
+                $scope.name = $scope.firstname + " " + $scope.lastname;
+            }
+            $scope.arrlist = [
+                { "userid": 1, "name": "Abuzer" },
+                { "userid": 2, "name": "Abuzer1" },
+                { "userid": 3, "name": "Abuzer3" },
+            ]
+        });  
+    </script>
+</body>
+
+</html>

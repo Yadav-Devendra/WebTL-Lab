@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-ng-mousedown-production</title>
+  
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+  
+</head>
+<body ng-app="">
+  <button ng-mouseup="count = count + 1" ng-init="count=0">
+  Increment (on mouse down)
+</button>
+count: {{count}}
+<h4>ngMouseEnter Example</h4> 
+<div>  
+  <div style="width:150px;height:50px;background-color:gray" ng-mouseenter="count = count + 1" ng-init="count=0">  
+  </div>  
+  <br /> Count of mouse enter on above div object: {{count}}  
+</div> 
+</body>
+</html>

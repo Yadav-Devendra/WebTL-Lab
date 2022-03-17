@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="angular.min.js"></script>
+<body ng-app="myApp"><p>The rootScope's favorite color:</p><h1>{{color}}</h1><div ng-controller="myCtrl"><p>The scope of the controller's favorite color:</p>  <h1>{{color}}</h1></div><p>The rootScope's favorite color is still:</p><h1>{{color}}</h1><script>
+    var app = angular.module('myApp', []);app.run(function($rootScope) {  $rootScope.color = 'blue';});app.controller('myCtrl', function($scope) { $scope.color = "red";});
+    </script></body>
+</html>

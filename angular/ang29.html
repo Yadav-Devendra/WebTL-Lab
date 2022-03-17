@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form.ng-invalid {
+            background-color: #7eb4c5;
+        }
+
+        form.ng-valid {
+            background-color: red;
+        }
+
+        input.ng-invalid {
+            background-color: aqua
+        }
+
+        input.ng-invalid-minlength {
+            background-color: rgb(162, 212, 24)
+        }
+        input.ng-valid {
+            background-color: rgb(84, 235, 159);
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-app="formApp" ng-controller="formCtrl">
+        <form name="personForm" novalidate ng-submit="personForm.$valid && sendForm()">
+            <br />
+            First Name:<input type="text" name="firstname" ng-model="person.fname" required ng-minlength="4" />
+            <span ng-show="personForm.firstname.$error.required && personForm.firstname.$touched">Enter text</span>
+            <span ng-show="personForm.firstname.$error.minlength">Enter minimum 4 chars</span>
+            <br /><br />
+            Last Name:<input type="text" name="lastname" ng-model="person.lname" required ng-minlength="4" />
+            <span ng-show="personForm.lastname.$error.required && personForm.lastname.$touched">Enter text</span>
+            <span ng-show="personForm.lastname.$error.minlength">Enter minimum 4 chars</span>
+            <br /><br />
+            <button type="submit">Submit Form</button><br /><br />
+            <h1><span>{{msg}}</span></h1>
+        </form>
+    </div>
+
+
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('formApp', []);
+        app.controller('formCtrl', function ($scope) {
+            $scope.sendForm = function () {
+
+                $scope.msg = "Form Validated";
+            };
+        });
+    </script>
+</body>
+
+</html>

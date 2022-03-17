@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <h4>ngMouseMove Example</h4>  
+<div ng-app="" >  
+    <div style="width:150px;height:50px;background-color:gray" ng-mousemove="x=$event.screenX;y=$event.screenY" ng-init="x=0;y=0;">  
+    </div>  
+    <br /> X: {{x}}  
+    <br /> Y: {{y}}  
+</div>  
+    
+</body>
+</html>

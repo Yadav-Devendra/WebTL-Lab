@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <script src= "angular.min.js"></script>
+</head>
+
+<body>
+    <h1> Student details</h1>
+    <div ng-app="MyApp" ng-controller="formCtrl">
+        <form>
+        First Name<input type="text" ng-model="fname"><br/>
+        Last Name <input type="text" ng-model="lname"><br/>
+        {{name}}<br/>
+        
+        DOB<input type="date" ng-model="date"><br/>
+        Gender 
+            <select ng-model="gender">  
+                <option value="">  
+                <option value="male">Male  
+                <option value="female">Female   
+            </select><br/>
+        Training type:<br/>
+                <input type="radio" ng-model="training" value="online">Online  
+                <input type="radio" ng-model="training" value="fest">Offline <br/>
+        Subjects:<br/>
+                <input type="checkbox" ng-model="maths">Maths<br/>
+                <input type="checkbox" ng-model="science">Science<br/>
+                <input type="checkbox" ng-model="english">English<br/>
+                <input type="button" value="Submit" ng-click="getValues()"/>
+                <input type="button" value="Reset"  />
+            </form>
+                 
+    </div>
+        <script>
+            var app= angular.controller("MyApp", []);
+            app.controller("formCtrl" ,($scope)=>{
+                $scope.name= $scope.fname+" "+ $scope.lname;
+
+            })
+            
+        </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+</head>
+
+<body ng-app="myNgApp">
+    <div ng-controller="myController">
+        Grade: {{student.Grade}}<br />
+        Name: {{student.Name}}<br />
+        <ul ng-repeat="x in name">
+            <li>{{x}}</li>
+        </ul><br />
+        Enter Message: <input type="text" ng-model="message" /> <br />
+        <button ng-click="showMsg(message)">Show Message</button>
+    </div>
+    <script>
+        var ngApp = angular.module('myNgApp', []);
+
+        ngApp.controller('myController', function ($scope) {
+            $scope.message = "Enter some text";
+            $scope.student = { Grade: 5, Name: "Abuzer" }
+            $scope.name = ["Khalid", "Zeya", "Wasique"]
+
+            $scope.showMsg = function (msg) {
+                alert(msg);
+            };
+        })  
+    </script>
+</body>
+
+</html>

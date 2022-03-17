@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app="formApp" ng-controller="formCtrl">
+
+        <h3>AngularJs ng-minlength Form Validation Example</h3>
+
+        <form name="personForm" novalidate ng-submit="personForm.$valid && sendForm()">
+
+            First Name:<input type="text" name="fname" ng-model="txtname" ng-minlength="5" required />
+
+            <span style="color:Red" ng-show="personForm.fname.$error.required && personForm.fname.$touched"> Required! </span>
+
+            <span style="color:Red" ng-show="personForm.fname.$dirty && personForm.fname.$error.minlength"> Minimum 5
+                Characters Required
+            </span>
+
+            <button type="submit">Submit Form</button><br /><br />
+            <span>{{msg}}</span>
+        </form>
+
+
+
+
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script type="text/javascript">
+            var app = angular.module('formApp', []);
+            app.controller('formCtrl', function ($scope) {
+                $scope.sendForm = function () {
+                    $scope.msg = "Form Validated";
+                };
+            });
+        </script>
+</body>
+
+</html>
