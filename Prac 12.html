@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-
+7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdv
+kyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
+EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-
+MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-
+awesome/6.0.0/css/all.min.css" integrity="sha512-
+9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9x
+C6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('formCtrl', function ($scope) {
+            $scope.addValues = function () {
+                for (var i = 0; i < $scope.selection.length; i++) {
+                    $scope.finalCB.push($scope.selection[i]);
+                }
+                $scope.formDetails = "Your Entered Details are: \nFirst Name: " + $scope.firstName
+                    + "\nLast Name: " + $scope.lastName + " \nGender: " + $scope.genderModel + "\nClass: " +
+                    $scope.deptModel + "\nEmail: " + $scope.emailModel + "\nContact: " +
+                    $scope.contactModel + "\nSelected Events are:" + $scope.finalCB;
+            };
+            $scope.finalCB = [];
+            $scope.eventsCB = ['Hackathon [Date:17 Feb 2022]', 'Poster Making [Date:18 Feb 2022]', 'Dancing[Date: 19 Feb 2022]', 'Singing[Date: 20 Feb 2022]'];
+            $scope.selection = [];
+            $scope.toggleSelection = function toggleSelection(eventsCB) {
+                var idx = $scope.selection.indexOf(eventsCB);
+                if (idx > -1) {
+                    // is currently selected
+                    $scope.selection.splice(idx, 1);
+                }
+                else {
+                    // is newly selected
+                    $scope.selection.push(eventsCB);
+                }
+            };
+            $scope.reset = function () {
+                $scope.firstName = "";
+                $scope.lastName = "";
+                $scope.genderModel = "";
+                $scope.deptModel = "";
+                $scope.emailModel = "";
+                $scope.contactModel = "";
+                $scope.selection = [];
+                $scope.finalCB = [];
+            }
+            $scope.reset();
+        });
+    </script>
+    <div ng-app="myApp" ng-controller="formCtrl" class="container">
+        <form name="eventForm" novalidate>
+            <h2><span><img src="https://ves.ac.in/wp-content/uploads/2018/07/Logo.png" class="imgfluid"
+                        alt="vesit-logo"></span>
+                VESIT EVENT REGISTRATION</h2>
+            <div class="row">
+                <div class="col">
+                    <label>First Name: </label>
+                    <input type="text" name="firstName" class="form-control" ng- model="firstName"
+                        placeholder="Enter your First Name" ng-minlength="5" ng-required="true" />
+                    <span style="color:Red" ng-show="eventForm.firstName.$error.required">
+                        Required! </span>
+                    <span style="color:Red" ng-show="eventForm.firstName.$dirty &&
+eventForm.firstName.$error.minlength"> Minimum 5
+                        Characters Required </span>
+                </div>
+                <div class="col">
+                    <label>Last Name: </label>
+                    <input type="text" name="lastName" class="form-control" ng-model="lastName"
+                        placeholder="Enter your Last Name" ng-minlength="5" ng-required="true" />
+                    <span style="color:Red" ng-show="eventForm.lastName.$error.required">
+                        Required! </span>
+                    <span style="color:Red" ng-show="eventForm.lastName.$dirty &&
+eventForm.lastName.$error.minlength">
+                        Minimum 5 Characters Required </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <br />
+                    <label>Select your Gender: </label><br />
+                    <input type="radio" name="gender" class="form-check-input" ng- model="genderModel" value="Male"
+                        ng-required="true"> Male
+                    <input type="radio" name="gender" class="form-check-input" ng- model="genderModel" value="Female"
+                        ng-required="true"> Female
+                    <input type="radio" name="gender" class="form-check-input" ng- model="genderModel"
+                        value="Transgender" ng-required="true"> Transgender
+                    <br />
+                    <span style="color:Red" ng-show="eventForm.gender.$error.required">
+                        Required! </span>
+                </div>
+                <div class="col">
+                    <br />
+                    <label>Select your Class:</label>
+                    <select name="dept" class="form-control" ng-model="deptModel" ng- required="true">
+                        <option value="MCA">MCA
+                        <option value="BVOC-SD">BVOC-SD
+                        <option value="MBA">MBA
+                        <option value="BE-IT">BE-IT
+                        <option value="BE-CS">BE-CS
+                        <option value="BE-EXTC">BE-EXTC
+                        <option value="BSC-IT">BSC-IT
+                        <option value="BSC-CS">BSC-CS
+                        <option value="BSC-STATS">BSC-STATS
+                        <option value="Others">Others
+                    </select>
+                    <span style="color:Red" ng-show="eventForm.dept.$error.required"> Required!
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <br />
+                    <label>Enter your email:</label>
+                    <input name="email" type="email" class="form-control" ng-pattern="/^[a-z]+[a-
+z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" placeholder="Enter your Email Address" ng- model="emailModel" ng-required="true" />
+                    <span style="color:Red" ng-show="eventForm.email.$error.required"> Required!
+                    </span>
+                    <span style="color:Red" ng- show="eventForm.email.$dirty&&eventForm.email.$error.pattern">Enter
+                        Valid
+                        only Email address</span>
+                </div>
+                <div class="col">
+                    <br />
+                    <label>Enter your Mobile Number:</label><br />
+                    <input type="number" name="contact" class="form-control" ng-pattern="/^[0-
+9]{10}$/" ng-model="contactModel" ng-required="true" />
+                    <span style="color:Red" ng-show="eventForm.contact.$error.required">
+                        Required! </span>
+                    <span style="color:Red" ng- show="eventForm.contact.$dirty&&eventForm.contact.$error.pattern">Only
+                        Numbers Allowed, Maximum 10 Characters</span>
+                </div>
+            </div>
+            <br />
+            Select Event:<br />
+            <div ng-repeat="e in eventsCB">
+                <div>
+                    <input id="{{e}}" type="checkbox" class="form-check-input" value="{{e}}" ng-
+                        checked="selection.indexOf(e) > -1" ng-click="toggleSelection(e)" />
+                    <label for="{{e}}"></label>
+                    {{e}}
+                </div>
+            </div>
+            <br />
+            <button class="btn btn-secondary" ng-click="reset()">Reset</button>
+            <button type="submit" ng-disabled="eventForm.$invalid" ng-click="addValues()" class="btn btn-primary"
+                value="Register">Register</button>
+        </form>
+        <h2 style="white-space: pre-wrap">{{formDetails}}</h2>
+    </div>
+</body>
+
+</html>

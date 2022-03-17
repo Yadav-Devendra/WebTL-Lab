@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+
+        AngularJs Validate Controls in Form
+
+    </title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script type="text/javascript">
+
+        var app = angular.module('formApp', []);
+
+        app.controller('formCtrl', function ($scope) {
+
+            $scope.sendForm = function () {
+
+                $scope.msg = "Form Validated";
+
+            };
+
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <div ng-app="formApp" ng-controller="formCtrl">
+
+        <form name="personForm" ng-submit="personForm.$valid && sendForm()" novalidate>
+
+            First Name:<input type="text" name="firstname" ng-model="person.fname" ng-required="true" />
+
+            <span ng-show="personForm.firstname.$error.required"> Required! </span> <br /><br />
+
+            Last Name:<input type="text" name="lastname" ng-model="person.lname" required />
+
+            <span ng-show="personForm.lastname.$error.required"> Required!</span> <br /><br />
+
+            <button <button type="submit">Submit Form</button><br /><br />
+
+            <span>{{msg}}</span>
+
+            <div ng-app="formApp" ng-controller="formCtrl">
+
+                <h3>AngularJs ng-minlength Form Validation Example</h3>
+                
+                <form name="personForm" novalidate ng-submit="personForm.$valid && sendForm()">
+                
+                First Name:<input type="text" name="fname" ng-model="txtname" ng-minlength="5" required />
+                
+                <span style="color:Red" ng-show="personForm.fname.$error.required"> Required! </span>
+                
+                <span style="color:Red" ng-show="personForm.fname.$dirty && personForm.fname.$error.minlength"> Minimum 5 Characters Required </span>
+                <span style="color:Red" ng-show="personForm.pincode.$dirty&&personForm.pincode.$error.maxlength"> Maximum 5 Characters Allowed </span>
+                
+                <br /><br />
+                Phone no:<input type="text" name="phone" ng-model="txtphone" ng-pattern="/^[0-9]{10}$/" required />
+                
+                <span style="color:Red" ng-show="personForm.phone.$error.required"> Required! </span>
+                
+                <span style="color:Red" ng-show="personForm.phone.$dirty&&personForm.phone.$error.pattern">Only Numbers Allowed, Maximum 10 Characters</span>
+                
+                <br /><br />
+                <button
+        </form>
+
+    </div>
+
+</body>
+
+</html>

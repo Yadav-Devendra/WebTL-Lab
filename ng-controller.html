@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-
+7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdv
+kyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
+EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-
+MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+
+<body ng-app="myApp">
+    <div class="container" ng-controller="display">
+        <h2>Members:</h2>
+        <table class="table">
+            <thead class="table-dark">
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Date of Joining</th>
+            </thead>
+            <tbody ng-repeat="x in members">
+                <td>{{x.empid}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.salary}}</td>
+                <td>{{x.doj}}</td>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    angular.module('myApp', []).controller('display', ['$scope', function Display($scope) {
+        $scope.members = [{
+            empid: 1, name: 'Devendra Yadav', salary: 11000.5468, doj:
+                '10/11/1999'
+        }, {
+            empid: 2, name: 'Neel Deshmukh', salary: 12000.545415, doj: '31/01/2000'
+        }, { empid: 3, name: 'Hassan Haque', salary: 10000.84848, doj: '25/08/2000' }, {
+            empid: 4,
+            name: 'Ronak Karia', salary: 9000.4451541, doj: '28/08/2000'
+        }, {
+            empid: 5, name: 'Utkarsh Bafana', salary: 5000.441415, doj: '08 / 04 / 2000' }];
+}
+        ]);
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-
+7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM
+0ZJdvkyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <h1 ng-style="myObj">
+        Example of Style Directive <br />
+        Name : Devendra Yadav <br />
+        Roll No: 63 <br />
+        Division: B <br />
+        Department: MCA <br />
+        College: VESIT <br />
+    </h1>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope) {
+            $scope.myObj = {
+                "color": "teal",
+                "background-color": "lightblue",
+                "font-size": "36px",
+                "margin": "auto",
+                "padding": "50px"
+            }
+        });
+    </script>
+</body>
+
+</html>

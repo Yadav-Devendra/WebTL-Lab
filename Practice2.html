@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <!--
+    <div ng-app="" ng-init="name='devendra';age=21;marks=[91,94,96]">
+        <p>Hello!&nbsp;{{name}}</p>
+        <p>your age is&nbsp;{{age}}</p>&nbsp;&nbsp;&nbsp;
+        Subject1 : {{ marks[0] }}<br>&nbsp;&nbsp;&nbsp;
+
+        Subject2 : {{ marks[1] }}<br>&nbsp;&nbsp;&nbsp;
+
+        Subject3 : {{ marks[2] }}<br>&nbsp;&nbsp;&nbsp;
+
+        Average : {{ (marks[0]+marks[1]+marks[2])/3 }}
+    </div>
+     -->
+    <div ng-app="" ng-init="name='devendra';Address='Mumbai';country=['India','China','USA'];student={name:'devendra yadav'}">
+        <ul>
+            <li ng-repeat="x in country">
+                {{x}}
+            </li>
+        </ul>
+        <p>Name of the student is: {{student.name}}</p>
+        <p>Address of the student is: {{Address}}</p>
+        <input type="number" ng-model="quantity">
+        <input type="number" ng-model="itemPrice">
+        <p>Total = {{quantity * itemPrice | currency:'INR':4}}</p>
+        <p>Total = {{quantity * itemPrice | number}}</p>
+        <pre>{{ {'price': 'value', 'age':20} | json }}</pre>
+        <pre>{{ {'name': 'Suresh Dasari','age': '29'} | json }}</pre>
+        <p>{{"devendra yadav" | lowercase}}</p>
+        <p>{{"devendra yadav" | uppercase}}</p>
+        <p>{{[1,2,3,4,5,6,7,8] | limitTo:3}}</p>
+        <p>{{"devendra yadav" | limitTo:3}}</p>
+        <p>{{[1,5,7,8,3,4] | orderBy :'': true}}</p>
+    </div>
+</body>
+
+</html>

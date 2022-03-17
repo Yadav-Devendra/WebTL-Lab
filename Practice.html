@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+
+<body>
+    <!--
+
+    
+    <div ng-app="" ng-init="name='Rahul';country=['USA','INDIA','UK'],names=[
+    {name:'Jani',country:'Norway'},
+    {name:'Hege',country:'Sweden'},
+    {name:'Kai',country:'Denmark'}];
+    firstName='devendra';lastName='yadav';
+    car ={type:"Ford", model:"Explorer", color:"White"}">
+        <p>Enter your Name: <input type="text" ng-model="name"></p>
+        <p>Hello <span ng-bind="name"></span>!</p>
+        <p><span ng-bind="name"></span></p>
+
+        <p>Looping with ng-repeat:</p>
+        <ul>
+            <li ng-repeat="x in country">
+                {{ x }}
+            </li>
+        </ul>
+        <ul>
+            <li ng-repeat="x in names">
+                {{ x.name + ', ' + x.country }}
+            </li>
+        </ul>
+
+        2 + 2 = {{2 + 2}}<br />
+        2 - 2 = {{2 - 2}}<br />
+        2 * 2 = {{2 * 2}}<br />
+        My name is: {{ firstName +" "+ lastName }}
+        <p>Model of the car is {{ car.model }}</p>
+    </div>
+    -->
+    <div ng-app="" ng-init="firstName='devendra'">
+        {{ firstName }}
+    </div>
+
+    <div ng-app="" ng-init="sort=['quick sort', 'merge sort',
+             'bubble sort']">
+        Sorting techniques:
+        <ul>
+            <li>{{ sort[0] }} </li>
+            <li>{{ sort[1] }} </li>
+            <li>{{ sort[2] }} </li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-
+7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO
+7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div ng-app="">
+        Enter Principal Amount: <input type="number" ng-model="p" required><br>
+        Enter Rate of Interest: <input type="number" ng-model="r" required><br>
+        Time Duration (In years): <input type="number" ng-model="t" required><br>
+        <br>
+        <b>Simple Interest: {{(p*r*t)/100}}</b>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-
+7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO
+7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div ng-app="" ng-init="multipliers=[1,2,3,4,5,6,7,8,9,10]">
+        Enter number: <input type="number" ng-model="num" ng-init="num=0" required>
+        <p ng-repeat="n in multipliers">
+            {{num + " * "+n+" = "+num*n}}
+        </p>
+    </div>
+</body>
+
+</html>

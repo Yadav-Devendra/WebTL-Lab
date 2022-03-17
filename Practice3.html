@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <!--
+        <div ng-app="" ng-init="quantity=1;price=5;names=['Purva','Manava','Sanvi']">
+        Quantity: <input type="number" ng-model="quantity">
+        Costs: <input type="number" ng-model="price">
+        Total in dollar: {{ quantity * price }}
+        <ul>
+            <li ng-repeat="name in names">
+                {{name}}
+            </li>
+        </ul>
+    </div>
+    -->
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+        First Name: <input type="text" ng-model="firstName"><br>
+        Last Name: <input type="text" ng-model="lastName"><br>
+        <br />
+        Full Name: {{firstName + " " + lastName}}
+        <div ng-style="myObj">
+            <h4>Welcome</h4>
+        </div>
+        <button ng-mousedown="count=count+1" ng-init="count=0">Increment (on mouse down)</button>
+        count: {{count}}
+        <button ng-mouseenter="count=count+1" ng-init="count=0">Increment (on mouse down)</button>
+        count: {{count}}
+        <button ng-mouseleave="count=count+1" ng-init="count=0">Increment (on mouse down)</button>
+        count: {{count}}
+        <input type="text" ng-keydown="count=count+1" ng-init="count=0">
+
+        <my-directive></my-directive>
+        <div my-directive></div>
+        <div class="my-directive"></div>
+        <!--
+            directive:my-directive
+        -->
+    </div>
+</body>
+<script>
+    var app = angular.module('myApp', [])
+    app.controller('myCtrl', function ($scope) {
+        $scope.firstName = "devendra";
+        $scope.lastName = "yadav";
+        $scope.myObj = {
+            "background-color": "blue",
+            "height" : "4rem",
+            "width" : "10rem",
+            "color" : "white",
+        }
+    });
+    app.directive("myDirective",function(){
+        return{
+            restrict: "EAMC",
+            replace: true,
+            template:"<h1>Made by a directive!</h1>"
+        };
+    });
+</script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-
+7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80do
+yaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
+EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js
+" integrity="sha384-
+MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+
+<body ng-app="">
+    <div class="container">
+        <h4>On mouse down example : </h4>
+        <button class="btn btn-primary" ng-mousedown="count1=count1+1" ng- init="count1=0"> Increment (on mouse down)
+        </button> <br><br>
+        Count on mouse down: {{ count1 }}
+        <h4>On mouse enter example : </h4>
+        <button class="btn btn-primary" ng-mouseenter="count2 = count2 + 1" ng- init="count2=0"> Increment (on mouse
+            enter)</button> <br><br>
+        Count on mouse enter: {{ count2 }}
+        <h4>On mouse leave example : </h4>
+        <button class="btn btn-primary" ng-mouseleave="count3 = count3 + 1" ng- init="count3=0"> Increment (on mouse
+            leave) </button> <br><br>
+        Count on mouse leave: {{count3}}
+        <h4>On mouse move example : </h4>
+        <button class="btn btn-primary" ng-mousemove="count4 = count4 + 1" ng- init="count4=0"> Increment (on mouse
+            move) </button> <br><br>
+        Count on mouse move: {{count4}}
+        <h4>On mouse over example : </h4>
+        <button class="btn btn-primary" ng-mouseover="count5 = count5 + 1" ng- init="count5=0"> Increment (on mouse
+            over) </button> <br><br>
+        Count on mouse over: {{count5}}
+        <h4>On mouse up example : </h4>
+        <button class="btn btn-primary" ng-mouseup="count6 = count6 + 1" ng- init="count6=0"> Increment (on mouse up)
+        </button> <br><br>
+        Count on mouse up: {{count6}}
+    </div>
+</body>
+
+</html>

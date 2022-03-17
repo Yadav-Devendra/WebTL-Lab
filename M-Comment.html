@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+</script>
+
+<body ng-app="testApp">
+    C-CLASS:
+    <div class="test-directive"></div><br />
+    E-ELEMENT:
+    <test-directive></test-directive><br />
+    A-ATTRIBUTE:
+    <div test-directive></div><br />
+    M-COMMENT:
+    <!-- directive: test-directive -->
+    <script>
+        var app = angular.module("testApp", []);
+        app.directive("testDirective", function () {
+            return {
+                restrict: "M",
+                replace: true,
+                template: "<h3>Custom directive message from Devendra Yadav.</h3>"
+            };
+        });
+    </script>
+</body>
+
+</html>
